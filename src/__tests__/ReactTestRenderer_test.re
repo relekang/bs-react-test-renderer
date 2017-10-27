@@ -10,7 +10,14 @@ describe "reactTestRenderer" (fun _ => {
   test "create returns ReactTestInstance" (fun _ => {
     let component = ReactTestRenderer.create <Tester />;
 
-    expect (toObject component) |> toContainProperties [| "_component" |];
+    expect (toObject component) |> toContainProperties [| 
+      "root",
+      "toJSON",
+      "toTree",
+      "update",
+      "unmount",
+      "getInstance"
+     |];
   });
 
   test "toJSON returns test rendered JSON" (fun _ => {
